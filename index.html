@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="바이러스의 두 얼굴을 탐험하는 인터랙티브 과학 연구소">
+
+  <title>V•LAB | Beyond the Fear</title>
+
+  <!-- CSS 파일 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==========================
+       01. 상단 내비게이션
+  ========================== -->
+
+  <nav>
+    <div class="logo">V•LAB</div>
+
+    <div class="navlinks">
+      <a href="#home">HOME</a>
+      <a href="#sides">TWO SIDES</a>
+      <a href="#lab">LAB</a>
+      <a href="#search">SEARCH</a>
+      <a href="#rethink">RETHINK</a>
+    </div>
+  </nav>
+
+
+  <!-- ==========================
+       02. 메인 화면
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        INTERACTIVE VIRUS LABORATORY
+      </div>
+
+      <h1>
+        BEYOND<br>
+        <span class="gradient">THE FEAR.</span>
+      </h1>
+
+      <p>
+        바이러스는 정말 인류에게 해롭기만 한 존재일까요?
+        <br><br>
+        우리가 두려워했던 존재의 숨겨진 역할을
+        탐험해 보세요.
+      </p>
+
+      <a href="#sides" class="btn">
+        탐험 시작하기 ↗
+      </a>
+
+    </div>
+
+    <!-- CSS로 움직이는 바이러스 그래픽 -->
+    <div class="virus" aria-hidden="true"></div>
+
+  </section>
+
+
+  <!-- ==========================
+       03. 바이러스의 두 얼굴
+  ========================== -->
+
+  <section id="sides" class="reveal">
+
+    <span class="tag">
+      CHAPTER 01 / TWO SIDES
+    </span>
+
+    <h2>
+      바이러스의
+      <span class="gradient">두 얼굴</span>
+    </h2>
+
+    <p>
+      우리가 알고 있는 바이러스의 모습은
+      과연 전부일까요?
+    </p>
+
+    <div class="side-controls">
+
+      <button type="button"
+              onclick="changeSide('danger')">
+        01. 위험의 얼굴
+      </button>
+
+      <button type="button"
+              onclick="changeSide('benefit')">
+        02. 숨겨진 역할
+      </button>
+
+    </div>
+
+    <div id="sidePanel"
+         class="side-panel danger"
+         aria-live="polite">
+
+      <h3 id="sideTitle">
+        인류를 위협한 바이러스
+      </h3>
+
+      <p id="sideText">
+        1918년 인플루엔자 대유행,
+        천연두, 코로나19.
+        바이러스는 역사적으로 수많은 생명을
+        위협해 왔습니다.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================
+       04. 바이러스 연구소
+  ========================== -->
+
+  <section id="lab" class="reveal">
+
+    <span class="tag">
+      CHAPTER 02 / VIRUS LAB
+    </span>
+
+    <h2>
+      바이러스
+      <span class="gradient">연구소</span>
+    </h2>
+
+    <p>
+      네 개의 연구 분야를 선택하고,
+      바이러스의 다양한 역할을
+      직접 탐색해 보세요.
+    </p>
+
+    <div class="grid">
+
+      <!-- 연구실 01 -->
+      <div class="card lab-card"
+           onclick="openLab(0)">
+
+        <span class="tag">LAB 01</span>
+
+        <h3>🧬 세균 조절 연구실</h3>
+
+        <p>
+          박테리오파지는 어떻게
+          세균의 수를 조절할까요?
+        </p>
+
+      </div>
+
+
+      <!-- 연구실 02 -->
+      <div class="card lab-card"
+           onclick="openLab(1)">
+
+        <span class="tag">LAB 02</span>
+
+        <h3>🌊 해양 생태계 연구실</h3>
+
+        <p>
+          바이러스는 바다의 영양분 순환에
+          어떤 역할을 할까요?
+        </p>
+
+      </div>
+
+
+      <!-- 연구실 03 -->
+      <div class="card lab-card"
+           onclick="openLab(2)">
+
+        <span class="tag">LAB 03</span>
+
+        <h3>🧬 진화 연구실</h3>
+
+        <p>
+          바이러스의 유전정보는
+          생물의 진화에 어떻게 기여했을까요?
+        </p>
+
+      </div>
+
+
+      <!-- 연구실 04 -->
+      <div class="card lab-card"
+           onclick="openLab(3)">
+
+        <span class="tag">LAB 04</span>
+
+        <h3>💊 치료 연구실</h3>
+
+        <p>
+          바이러스의 특성을 어떻게
+          의학적 치료에 활용할까요?
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- JavaScript가 연구 내용을 표시하는 공간 -->
+    <div class="lab-output"
+         id="labOutput"
+         aria-live="polite">
+
+      <h3>연구실을 선택해 주세요.</h3>
+
+      <p>
+        위의 네 가지 연구실 중 하나를 클릭하면
+        연구가 시작됩니다.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================
+       05. 실제 자료 검색
+  ========================== -->
+
+  <section id="search" class="reveal">
+
+    <span class="tag">
+      CHAPTER 03 / RESEARCH DATABASE
+    </span>
+
+    <h2>
+      바이러스
+      <span class="gradient">자료 검색</span>
+    </h2>
+
+    <p>
+      궁금한 바이러스나 과학 개념을
+      검색해 보세요.
+      <br>
+      위키백과의 실제 검색 결과를
+      확인할 수 있습니다.
+    </p>
+
+
+    <div class="search-box">
+
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="예: 박테리오파지, 유전자 치료, 태반"
+        aria-label="바이러스 관련 자료 검색"
+      >
+
+      <button type="button"
+              onclick="searchWiki()">
+        검색하기
+      </button>
+
+    </div>
+
+
+    <div class="side-controls">
+
+      <button type="button"
+              onclick="externalSearch('google')">
+        Google에서 검색
+      </button>
+
+      <button type="button"
+              onclick="externalSearch('naver')">
+        Naver에서 검색
+      </button>
+
+    </div>
+
+
+    <!-- 실제 검색 결과 표시 영역 -->
+    <div class="results"
+         id="results"
+         aria-live="polite">
+    </div>
+
+
+    <p style="font-size:12px;">
+      자료 출처: 한국어 위키백과 API.
+      검색 결과는 외부 서비스에서 제공하며
+      정확성에 대한 추가 검증이 필요합니다.
+    </p>
+
+  </section>
+
+
+  <!-- ==========================
+       06. 인식 변화
+  ========================== -->
+
+  <section id="rethink" class="reveal">
+
+    <span class="tag">
+      CHAPTER 04 / RETHINK
+    </span>
+
+    <h2>
+      당신의 생각은
+      <span class="gradient">달라졌나요?</span>
+    </h2>
+
+    <div class="card">
+
+      <h3>
+        바이러스는 해롭기만 한 존재일까요?
+      </h3>
+
+      <p>
+        바이러스는 질병을 일으킬 수 있지만,
+        생태계의 균형과 생물의 진화,
+        그리고 의학 발전에도 기여합니다.
+      </p>
+
+      <div class="side-controls">
+
+        <button type="button"
+                onclick="answer('yes')">
+          새로운 역할을 알게 되었어요
+        </button>
+
+        <button type="button"
+                onclick="answer('more')">
+          더 알아보고 싶어요
+        </button>
+
+      </div>
+
+      <p id="answerText"
+         aria-live="polite">
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================
+       07. 푸터
+  ========================== -->
+
+  <footer>
+    <p>V•LAB — BEYOND THE FEAR</p>
+
+    <p>
+      Inspired by
+      The Varied World of Viruses
+    </p>
+
+    <p>
+      Interactive Science Experience
+    </p>
+  </footer>
+
+
+  <!-- JavaScript 파일 연결 -->
+  <script src="script.js"></script>
+
+</body>
+</html>

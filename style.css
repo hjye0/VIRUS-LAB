@@ -1,0 +1,871 @@
+
+/* =========================================
+   V•LAB — BEYOND THE FEAR
+   MAIN STYLESHEET
+   BLACK × PURPLE × BLUE
+========================================= */
+
+
+/* 01. 기본 색상 */
+
+:root {
+  --bg: #070711;
+  --bg-secondary: #101024;
+  --panel: #17132f;
+  --panel-light: #211b41;
+
+  --purple: #7c3aed;
+  --purple-light: #c4b5fd;
+  --blue: #3b82f6;
+  --blue-light: #93c5fd;
+
+  --white: #f5f4ff;
+  --muted: #aaa9c4;
+
+  --border: rgba(167, 139, 250, 0.18);
+
+  --gradient: linear-gradient(
+    120deg,
+    #a78bfa,
+    #60a5fa
+  );
+}
+
+
+/* 02. 전체 기본 설정 */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--bg);
+  color: var(--white);
+
+  font-family:
+    "Pretendard",
+    "Segoe UI",
+    "Malgun Gothic",
+    sans-serif;
+
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+
+/* 배경의 은은한 빛 */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 80% 15%,
+      rgba(124, 58, 237, 0.17),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 15% 80%,
+      rgba(59, 130, 246, 0.12),
+      transparent 55%
+    );
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* 03. 글자 스타일 */
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(50px, 8vw, 105px);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+  margin: 20px 0 30px;
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.25;
+  margin: 15px 0 25px;
+}
+
+h3 {
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+p {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.gradient {
+  background: var(--gradient);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.eyebrow,
+.tag {
+  display: inline-block;
+
+  color: var(--purple-light);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.eyebrow {
+  letter-spacing: 4px;
+}
+
+
+/* 04. 상단 내비게이션 */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  min-height: 75px;
+
+  padding: 15px 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  background: rgba(7, 7, 17, 0.82);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--border);
+
+  z-index: 1000;
+}
+
+.logo {
+  color: var(--purple-light);
+
+  font-size: 24px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+nav a {
+  color: #c8c7e0;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--purple-light);
+}
+
+
+/* 05. 공통 섹션 */
+
+section {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 120px 7%;
+}
+
+section:not(.hero) {
+  min-height: 65vh;
+}
+
+
+/* 06. 메인 HERO */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero p {
+  max-width: 500px;
+
+  font-size: 16px;
+  line-height: 2;
+}
+
+
+/* 07. 바이러스 구체 */
+
+.virus {
+  position: relative;
+
+  width: 300px;
+  height: 300px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #d1baff 0%,
+      #9d70ed 20%,
+      #5431a8 48%,
+      #142d76 82%
+    );
+
+  box-shadow:
+    0 0 45px rgba(124, 58, 237, 0.3),
+    0 0 100px rgba(59, 130, 246, 0.16),
+    inset -25px -25px 65px rgba(0, 0, 20, 0.85);
+
+  animation: virusFloat 6s ease-in-out infinite;
+}
+
+
+/* 바이러스 바깥 궤도 */
+
+.virus::before {
+  content: "";
+
+  position: absolute;
+  inset: -22px;
+
+  border: 1px solid rgba(167, 139, 250, 0.35);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.2);
+}
+
+
+/* 회전하는 궤도 */
+
+.virus::after {
+  content: "";
+
+  position: absolute;
+  inset: -42px;
+
+  border: 2px dashed rgba(147, 197, 253, 0.3);
+
+  border-radius: 50%;
+
+  animation: virusRotate 28s linear infinite;
+}
+
+@keyframes virusFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-22px);
+  }
+}
+
+@keyframes virusRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* 08. 버튼 */
+
+button,
+.btn {
+  display: inline-block;
+
+  padding: 14px 25px;
+
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 12px;
+
+  background: linear-gradient(
+    120deg,
+    #6940bb,
+    #315bb5
+  );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 30px rgba(124, 58, 237, 0.35);
+
+  border-color: var(--purple-light);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 4px;
+}
+
+
+/* 09. 카드 */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+
+  margin-top: 35px;
+}
+
+.card {
+  padding: 32px;
+
+  border: 1px solid var(--border);
+  border-radius: 22px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(33, 27, 65, 0.85),
+    rgba(15, 17, 38, 0.9)
+  );
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(167, 139, 250, 0.65);
+
+  box-shadow: 0 15px 40px rgba(75, 45, 160, 0.18);
+}
+
+.card h3 {
+  color: #d8c9ff;
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+
+/* 10. 바이러스의 두 얼굴 */
+
+.side-controls {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin: 28px 0;
+}
+
+.side-panel {
+  min-height: 230px;
+
+  padding: 38px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+
+  transition:
+    background 0.6s ease,
+    opacity 0.35s ease,
+    border-color 0.5s ease;
+}
+
+.side-panel h3 {
+  color: var(--white);
+}
+
+/* 위험한 바이러스 */
+
+.side-panel.danger {
+  background: linear-gradient(
+    120deg,
+    #39182f,
+    #171126,
+    #10112c
+  );
+
+  border-color: rgba(244, 114, 182, 0.25);
+}
+
+/* 이로운 역할 */
+
+.side-panel.benefit {
+  background: linear-gradient(
+    120deg,
+    #152e64,
+    #271c58,
+    #11142c
+  );
+
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+
+/* 11. 연구실 카드 */
+
+.lab-card {
+  cursor: pointer;
+}
+
+.lab-card.selected {
+  background: linear-gradient(
+    145deg,
+    #2c2156,
+    #131d42
+  );
+
+  border-color: var(--purple-light);
+
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.18);
+}
+
+
+/* 12. 연구실 출력 화면 */
+
+.lab-output {
+  margin-top: 30px;
+
+  padding: 35px;
+
+  background: linear-gradient(
+    145deg,
+    #101329,
+    #15112e
+  );
+
+  border: 1px solid rgba(147, 197, 253, 0.22);
+  border-radius: 22px;
+}
+
+.lab-output h3 {
+  color: var(--purple-light);
+}
+
+.lab-output button {
+  margin: 8px 10px 8px 0;
+}
+
+
+/* 13. 실험 시뮬레이터 */
+
+.simulator {
+  margin: 25px 0;
+
+  padding: 25px;
+
+  background: #090c1e;
+
+  border: 1px solid rgba(167, 139, 250, 0.16);
+  border-radius: 16px;
+}
+
+.simulator h4 {
+  color: var(--blue-light);
+  margin-bottom: 12px;
+}
+
+.sim-bar {
+  width: 100%;
+  height: 18px;
+
+  margin: 20px 0;
+
+  overflow: hidden;
+
+  background: #292c49;
+
+  border-radius: 20px;
+}
+
+.sim-fill {
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #60a5fa
+  );
+
+  border-radius: 20px;
+
+  transition: width 0.7s ease;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 15px 0;
+
+  accent-color: var(--purple-light);
+
+  cursor: pointer;
+}
+
+
+/* 14. 검색창 */
+
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+input[type="search"] {
+  flex: 1;
+
+  min-width: 200px;
+
+  padding: 15px 18px;
+
+  background: #17162d;
+
+  color: var(--white);
+
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+input[type="search"]:focus {
+  border-color: var(--purple-light);
+
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.18);
+}
+
+input[type="search"]::placeholder {
+  color: #8583a6;
+}
+
+
+/* 15. 검색 결과 */
+
+.results {
+  display: grid;
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.result-item {
+  padding: 24px;
+
+  background: rgba(24, 23, 48, 0.9);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.result-item:hover {
+  border-color: rgba(147, 197, 253, 0.6);
+
+  transform: translateY(-3px);
+}
+
+.result-item a {
+  color: #b6c7ff;
+
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.result-item a:hover {
+  text-decoration: underline;
+}
+
+.result-item p {
+  margin-top: 10px;
+  margin-bottom: 0;
+
+  font-size: 14px;
+}
+
+
+/* 16. 스크롤 등장 애니메이션 */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(
+      0.22, 1, 0.36, 1
+    );
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 17. 마지막 인식 변화 */
+
+#rethink .card {
+  background: linear-gradient(
+    130deg,
+    rgba(39, 28, 84, 0.85),
+    rgba(18, 35, 78, 0.8)
+  );
+}
+
+#answerText {
+  color: var(--purple-light);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+
+/* 18. 푸터 */
+
+footer {
+  padding: 55px 20px;
+
+  text-align: center;
+
+  border-top: 1px solid var(--border);
+
+  background: rgba(8, 8, 20, 0.8);
+}
+
+footer p {
+  margin: 5px 0;
+
+  color: #8785a4;
+
+  font-size: 12px;
+}
+
+
+/* 19. 태블릿 화면 */
+
+@media (max-width: 900px) {
+  nav {
+    padding: 15px 5%;
+  }
+
+  .navlinks {
+    gap: 15px;
+  }
+
+  section {
+    padding: 100px 6%;
+  }
+
+  .hero {
+    gap: 35px;
+  }
+
+  .virus {
+    width: 230px;
+    height: 230px;
+  }
+}
+
+
+/* 20. 모바일 화면 */
+
+@media (max-width: 650px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+    padding: 12px 5%;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .navlinks {
+    width: 100%;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 100px 6%;
+  }
+
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+
+    padding-top: 180px;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .virus {
+    width: 180px;
+    height: 180px;
+
+    margin: 25px auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .side-panel,
+  .lab-output {
+    padding: 24px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  h1 {
+    letter-spacing: -0.04em;
+  }
+}
+
+
+/* 21. 움직임 최소화 설정 */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
